@@ -7,7 +7,7 @@ publishing {
         maven(MavenPublication) {
             groupId 'us.mn.state.health'
             artifactId = 'medss'
-            version 'Testing'+getDate()
+            version getDate()
             artifact("maven.war") {
                 extension 'war'
             }
