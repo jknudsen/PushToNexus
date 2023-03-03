@@ -8,7 +8,7 @@ publishing {
             groupId 'us.mn.state.health'
             artifactId = 'medss'
             version getDate()
-            artifact("maven.war") {
+            artifact("build/maven.war") {
                 extension 'war'
             }
         }
