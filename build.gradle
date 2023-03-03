@@ -1,0 +1,37 @@
+apply plugin: 'maven-publish'
+
+publishing {
+
+    publications {
+
+        maven(MavenPublication) {
+            groupId 'us.mn.state.health'
+            artifactId = 'medss'
+            version 'Testing'+getDate()
+            artifact("maven.war") {
+                extension 'war'
+            }
+        }
+    }
+
+    repositories {
+
+        maven {
+
+            name 'nexus'
+
+            url "https://nexus.health.state.mn.us/repository/releases/"
+
+            credentials {
+                username project.repoUser
+                password project.repoPassword
+            }
+        }
+    }
+}
+
+def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyyMMdd')
+    return formattedDate
+}
